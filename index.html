@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Calculator version 2.0</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      padding: 20px;
+    }
+    .calculator {
+      background-color: #fffdfd;
+      padding: 20px;
+      max-width: 300px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background-color: #fc5400;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Basic Calculator version 2.0</h2>
+    <p><strong>► Instructions</strong></p>
+    <label for="num1">Enter 1st Number:<br><small>input any number 0 to 100</small></label>
+    <input type="number" id="num1" min="0" max="100">
+    
+    <label for="num2">Enter 2nd Number:<br><small>input any decimal number from 0</small></label>
+    <input type="number" id="num2" min="0" step="0.01">
+    
+    <button onclick="displayResult()">Display</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function displayResult() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').textContent = "Please enter valid numbers.";
+      } else {
+        const sum = num1 + num2;
+        document.getElementById('result').textContent = "Result: " + sum.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>
